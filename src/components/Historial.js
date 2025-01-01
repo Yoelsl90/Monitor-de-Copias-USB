@@ -1,11 +1,12 @@
 import React from 'react';
 import './styles/Historial.css';
 
-const Historial = () => (
-  <div className="historial">
-    <h2>Historial de Dispositivos</h2>
-    {/* Aquí irán los detalles del historial */}
-  </div>
-);
+const Historial = () => {
+  return (
+    <div className="historial-de-dispositivos">
+      {/* Aquí el contenido relevante de Historial */}
+    </div>
+  );
+};
 
 export default Historial;

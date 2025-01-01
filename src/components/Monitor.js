@@ -3,15 +3,18 @@ import './styles/Monitor.css';
 
 const Monitor = () => {
   return (
-    <div className="monitor">
-      <div className="title-background">
-        <h1 className="title">Monitor de Dispositivos</h1>
-        <div className="sub-menu">
+    <div className="monitor-de-dispositivos">
+      <h2>Monitor de Dispositivos</h2>
+      <div className="buttons-container">
+        <div className="tooltip">
           <button>Monitor</button>
+          <span className="tooltiptext">Monitorea dispositivos en tiempo real</span>
+        </div>
+        <div className="tooltip">
           <button>Historial</button>
+          <span className="tooltiptext">Ver el historial de dispositivos</span>
         </div>
       </div>
-      {/* Contenido de Monitor */}
     </div>
   );
 };
