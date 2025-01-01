@@ -1,0 +1,15 @@
+/* Asegúrate de que estos estilos ya existen en tu archivo CSS */
+.exportar-dropdown .dropdown-options {
+    top: 100%;
+    left: 0;
+  }
+  
+  .exportar-dropdown .dropdown-options button {
+    width: 100%;
+    text-align: left;
+  }
+  
+  .exportar-dropdown .dropdown-options button:hover {
+    background-color: #ff66ff;
+  }
+  

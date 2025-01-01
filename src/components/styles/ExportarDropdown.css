@@ -1,0 +1,52 @@
+/* Posiciona el contenedor del botón de exportar en la esquina inferior derecha */
+.exportar-wrapper {
+  position: fixed;
+  bottom: 20px;  /* Ajusta según sea necesario */
+  right: 20px;   /* Ajusta según sea necesario */
+}
+
+.exportar-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.exportar-dropdown button {
+  background-color: #00ffcc; /* Verde */
+  border: none;
+  border-radius: 4px;
+  color: #000;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  font-family: 'Cyberpunk', Arial, sans-serif;
+}
+
+.exportar-dropdown button:hover {
+  background-color: #ff66ff;
+}
+
+.dropdown-options {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 100%;   /* Despliega hacia arriba */
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 10px #ff66ff;
+  border-radius: 8px;
+  margin-bottom: 1em;
+  z-index: 1;
+}
+
+.dropdown-options button {
+  background-color: transparent;
+  border: none;
+  color: #00ffcc;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Cyberpunk', Arial, sans-serif;
+}
+
+.dropdown-options button:hover {
+  background-color: #ff66ff;
+  color: #000;
+}

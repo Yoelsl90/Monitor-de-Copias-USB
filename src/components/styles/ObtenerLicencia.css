@@ -1,0 +1,26 @@
+.obtener-licencia {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #ff66ff;
+  }
+  
+  .obtener-licencia h3 {
+    color: #00ffcc;
+    font-family: 'Cyberpunk', Arial, sans-serif;
+  }
+  
+  .obtener-licencia button {
+    background-color: #00ffcc;
+    border: none;
+    border-radius: 4px;
+    color: #000;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    font-family: 'Cyberpunk', Arial, sans-serif;
+  }
+  
+  .obtener-licencia button:hover {
+    background-color: #ff66ff;
+  }
+  

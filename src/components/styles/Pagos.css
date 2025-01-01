@@ -1,0 +1,82 @@
+.pagos {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1em;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #ff66ff;
+}
+
+.pagos h3, .pagos h4 {
+  color: #00ffcc;
+  font-family: 'Cyberpunk', Arial, sans-serif;
+}
+
+.payment-types {
+  display: flex;
+  gap: 1em;
+  margin-bottom: 1em;
+  list-style: none;
+  padding: 0;
+}
+
+.payment-types li {
+  cursor: pointer;
+  color: #00ffcc;
+  font-family: 'Cyberpunk', Arial, sans-serif;
+  padding: 0.5em;
+}
+
+.payment-types li:hover {
+  color: #ff66ff;
+}
+
+.default-payment-type {
+  margin-bottom: 1em;
+}
+
+.default-payment-type label {
+  color: #00ffcc;
+  font-family: 'Cyberpunk', Arial, sans-serif;
+}
+
+.custom-select {
+  background-color: #00ffcc;
+  color: #000;
+  padding: 0.5em;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Cyberpunk', Arial, sans-serif;
+  cursor: pointer;
+}
+
+.custom-select:hover {
+  background-color: #ff66ff;
+  color: #000;
+}
+
+.payment-methods {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1em;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #ff66ff;
+}
+
+.payment-methods label {
+  display: block;
+  color: #00ffcc;
+  font-family: 'Cyberpunk', Arial, sans-serif;
+  margin-bottom: 0.5em;
+}
+
+.payment-methods input {
+  margin: 0 0.5em;
+  padding: 0.5em;
+  border-radius: 4px;
+  border: none;
+  background-color: #333;
+  color: #00ffcc;
+  font-family: 'Cyberpunk', Arial, sans-serif;
+}
+
+.payment-methods div {
+  margin-bottom: 1em;
+}

@@ -1,0 +1,55 @@
+.configuracion {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1em;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #ff66ff;
+}
+
+.configuracion h2, .configuracion h3 {
+  color: #00ffcc;
+  font-family: 'Cyberpunk', Arial, sans-serif;
+}
+
+.sub-menu {
+  display: flex;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+.sub-menu li {
+  cursor: pointer;
+  color: #00ffcc;
+  font-family: 'Cyberpunk', Arial, sans-serif;
+  padding: 0.5em;
+}
+
+.sub-menu li:hover {
+  color: #ff66ff;
+}
+
+.config-content {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1em;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #ff66ff;
+}
+
+.exportar-config {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.exportar-config label {
+  color: #00ffcc;
+  font-family: 'Cyberpunk', Arial, sans-serif;
+}
+
+.exportar-config input {
+  padding: 0.5em;
+  border-radius: 4px;
+  border: none;
+  background-color: #333;
+  color: #00ffcc;
+  font-family: 'Cyberpunk', Arial, sans-serif;
+}
