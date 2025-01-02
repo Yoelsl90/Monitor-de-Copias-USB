@@ -29,6 +29,10 @@ const Navbar = ({ setActiveTab }) => {
     setShowConfiguracionSubMenu(!showConfiguracionSubMenu);
   };
 
+  const handlePagosClick = () => {
+    setActiveTab('pagos'); // Actualiza la sección activa a "pagos"
+  };
+
   return (
     <nav className="navbar">
       <ul className="nav-links">
@@ -61,7 +65,7 @@ const Navbar = ({ setActiveTab }) => {
           Configuración
           {showConfiguracionSubMenu && (
             <ul className="submenu">
-              <li onClick={() => alert('Pagos seleccionados')}>Pagos</li>
+              <li onClick={handlePagosClick}>Pagos</li> {/* Añadir el evento onClick para pagos */}
               <li onClick={() => alert('Exportar seleccionado')}>Exportar</li>
               <li onClick={handleTemaClick}>
                 Tema

@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Monitor from './components/Monitor';
 import Historial from './components/Historial';
 import Configuracion from './components/Configuracion';
+import Pagos from './components/Pagos';  // Importar Pagos
 import ExportarDropdown from './components/ExportarDropdown';
 import './main.css';
 
@@ -16,6 +17,7 @@ const App = () => {
         {activeTab === 'archivo' && <div></div>}  {/* Eliminamos "Contenido de Archivo" */}
         {activeTab === 'ver' && <div></div>}       {/* Eliminamos "Contenido de Ver" */}
         {activeTab === 'configuracion' && <Configuracion setActiveTab={setActiveTab} />}
+        {activeTab === 'pagos' && <Pagos />}       {/* Añadimos la sección de "Pagos" */}
         {activeTab === 'ayuda' && <div>Ayuda</div>}
       </main>
       <div className="monitor-wrapper">

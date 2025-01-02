@@ -1,82 +1,85 @@
-.pagos {
-  background: rgba(0, 0, 0, 0.7);
+.pagos-configuracion {
   padding: 1em;
-  border-radius: 8px;
-  box-shadow: 0 0 10px #ff66ff;
+  background-color: #2b2b2b;
+  color: #00ccff;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #00ccff;
 }
 
-.pagos h3, .pagos h4 {
-  color: #00ffcc;
-  font-family: 'Cyberpunk', Arial, sans-serif;
-}
-
-.payment-types {
-  display: flex;
-  gap: 1em;
-  margin-bottom: 1em;
-  list-style: none;
-  padding: 0;
-}
-
-.payment-types li {
-  cursor: pointer;
-  color: #00ffcc;
-  font-family: 'Cyberpunk', Arial, sans-serif;
-  padding: 0.5em;
-}
-
-.payment-types li:hover {
-  color: #ff66ff;
-}
-
-.default-payment-type {
-  margin-bottom: 1em;
-}
-
-.default-payment-type label {
-  color: #00ffcc;
-  font-family: 'Cyberpunk', Arial, sans-serif;
-}
-
-.custom-select {
-  background-color: #00ffcc;
-  color: #000;
-  padding: 0.5em;
-  border: none;
-  border-radius: 4px;
-  font-family: 'Cyberpunk', Arial, sans-serif;
-  cursor: pointer;
-}
-
-.custom-select:hover {
-  background-color: #ff66ff;
-  color: #000;
-}
-
-.payment-methods {
-  background: rgba(0, 0, 0, 0.7);
-  padding: 1em;
-  border-radius: 8px;
-  box-shadow: 0 0 10px #ff66ff;
-}
-
-.payment-methods label {
-  display: block;
-  color: #00ffcc;
-  font-family: 'Cyberpunk', Arial, sans-serif;
+.pagos-configuracion h2,
+.pagos-configuracion h3 {
   margin-bottom: 0.5em;
 }
 
-.payment-methods input {
-  margin: 0 0.5em;
+.regresar-btn {
+  background-color: #ff33cc;
+  border: none;
+  border-radius: 4px;
+  color: #000;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  font-family: 'Arial', sans-serif;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 10px #ff33cc;
+  margin-bottom: 1em;
+}
+
+.regresar-btn:hover {
+  background-color: #ff6699;
+  box-shadow: 0 0 10px #ff6699;
+}
+
+.tipo-pago label {
+  display: block;
+  margin-bottom: 1em;
+}
+
+.configuracion-gb .configuracion-item,
+.configuracion-rangos .rango {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.configuracion-gb label,
+.configuracion-rangos label {
+  margin-right: 0.5em;
+  width: 100px;
+}
+
+.configuracion-gb input,
+.configuracion-rangos input {
   padding: 0.5em;
   border-radius: 4px;
   border: none;
   background-color: #333;
-  color: #00ffcc;
-  font-family: 'Cyberpunk', Arial, sans-serif;
+  color: #00ccff;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 0 10px #00ccff;
+  flex: 1;
 }
 
-.payment-methods div {
-  margin-bottom: 1em;
+.configuracion-rangos .rango button {
+  margin-left: 1em;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  border: none;
+  background-color: #ff33cc;
+  color: #000;
+  font-family: 'Arial', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 10px #ff33cc;
+}
+
+.configuracion-rangos .rango button:hover {
+  background-color: #ff6699;
+  box-shadow: 0 0 10px #ff6699;
+}
+
+.configuracion-rangos .rango button:disabled {
+  background-color: #555;
+  color: #aaa;
+  cursor: not-allowed;
+  box-shadow: none;
 }

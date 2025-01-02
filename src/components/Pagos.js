@@ -1,94 +1,103 @@
 import React, { useState } from 'react';
 import './styles/Pagos.css';
 
-const Pagos = () => {
-  const [activePaymentType, setActivePaymentType] = useState('');
-  const [defaultPaymentType, setDefaultPaymentType] = useState('gb');
-  const [gbPricing, setGbPricing] = useState({
-    video: 5,
-    music: 10,
-    photos: 5,
-    others: 5,
-    games: 50
-  });
-  const [rangePricing, setRangePricing] = useState([
-    { from: 0.1, to: 1, price: 5 },
-    { from: 1, to: 4, price: 20 },
-    { from: 4, to: 8, price: 40 }
-  ]);
+const Pagos = ({ setActiveSection }) => {
+  const [tipoPago, setTipoPago] = useState('porGb');
+  const [precioPorGb, setPrecioPorGb] = useState({ video: '', musica: '', fotos: '', games: '', otros: '' });
+  const [rangos, setRangos] = useState([{ min: '', max: '', precio: '' }]);
 
-  const handlePaymentTypeClick = (type) => {
-    setActivePaymentType(type);
+  const handleTipoPagoChange = (event) => {
+    event.stopPropagation();
+    setTipoPago(event.target.value);
   };
 
-  const handleGbPriceChange = (event) => {
-    const { name, value } = event.target;
-    setGbPricing({ ...gbPricing, [name]: parseFloat(value) });
+  const handlePrecioChange = (tipo, value) => {
+    setPrecioPorGb({ ...precioPorGb, [tipo]: value });
   };
 
-  const handleRangePriceChange = (index, field, value) => {
-    const updatedRanges = rangePricing.map((range, i) => 
-      i === index ? { ...range, [field]: parseFloat(value) } : range
-    );
-    setRangePricing(updatedRanges);
+  const handleRangoChange = (index, field, value) => {
+    const newRangos = [...rangos];
+    newRangos[index][field] = value;
+    setRangos(newRangos);
   };
 
-  const handleDefaultPaymentTypeChange = (event) => {
-    setDefaultPaymentType(event.target.value);
+  const agregarRango = () => {
+    setRangos([...rangos, { min: '', max: '', precio: '' }]);
+  };
+
+  const eliminarRango = (index) => {
+    const newRangos = rangos.filter((_, i) => i !== index);
+    setRangos(newRangos);
+  };
+
+  const handleRegresar = () => {
+    setActiveSection(null);
   };
 
   return (
-    <div className="pagos">
-      <h3>Tipos de Pago</h3>
-      <ul className="payment-types">
-        <li onClick={() => handlePaymentTypeClick('gb')}>Por GB</li>
-        <li onClick={() => handlePaymentTypeClick('rango')}>Por Rango</li>
-      </ul>
-      <div className="default-payment-type">
+    <div className="pagos-configuracion">
+      <h2>Configuración de Pagos</h2>
+      <button onClick={handleRegresar} className="regresar-btn">Regresar</button>
+      <div className="tipo-pago">
         <label>
-          Método de Pago Predeterminado:
-          <select value={defaultPaymentType} onChange={handleDefaultPaymentTypeChange} className="custom-select">
-            <option value="gb">Por GB</option>
-            <option value="rango">Por Rango</option>
-          </select>
+          <input type="radio" value="porGb" checked={tipoPago === 'porGb'} onChange={handleTipoPagoChange} />
+          Pago por GB copiados
+        </label>
+        <label>
+          <input type="radio" value="porRango" checked={tipoPago === 'porRango'} onChange={handleTipoPagoChange} />
+          Por rango de GB
         </label>
       </div>
-      <div className="payment-methods">
-        {activePaymentType === 'gb' && (
-          <div>
-            <h4>Métodos de Pago por GB</h4>
-            <label>
-              Video: $<input type="number" name="video" value={gbPricing.video} onChange={handleGbPriceChange} /> por GB
-            </label>
-            <label>
-              Música: $<input type="number" name="music" value={gbPricing.music} onChange={handleGbPriceChange} /> por GB
-            </label>
-            <label>
-              Fotos: $<input type="number" name="photos" value={gbPricing.photos} onChange={handleGbPriceChange} /> por GB
-            </label>
-            <label>
-              Otros: $<input type="number" name="others" value={gbPricing.others} onChange={handleGbPriceChange} /> por GB
-            </label>
-            <label>
-              Juegos: $<input type="number" name="games" value={gbPricing.games} onChange={handleGbPriceChange} /> por GB
-            </label>
-          </div>
-        )}
-        {activePaymentType === 'rango' && (
-          <div>
-            <h4>Métodos de Pago por Rango</h4>
-            {rangePricing.map((range, index) => (
-              <div key={index}>
-                <label>
-                  De <input type="number" value={range.from} onChange={(e) => handleRangePriceChange(index, 'from', e.target.value)} /> GB
-                  a <input type="number" value={range.to} onChange={(e) => handleRangePriceChange(index, 'to', e.target.value)} /> GB:
-                  $<input type="number" value={range.price} onChange={(e) => handleRangePriceChange(index, 'price', e.target.value)} />
-                </label>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
+
+      {tipoPago === 'porGb' && (
+        <div className="configuracion-gb">
+          <h3>Configuración por GB copiados</h3>
+          {['video', 'musica', 'fotos', 'games', 'otros'].map((tipo) => (
+            <div key={tipo} className="configuracion-item">
+              <label>{tipo.charAt(0).toUpperCase() + tipo.slice(1)}:</label>
+              <input
+                type="number"
+                value={precioPorGb[tipo]}
+                onChange={(e) => handlePrecioChange(tipo, e.target.value)}
+                placeholder={`Precio por GB de ${tipo}`}
+              />
+            </div>
+          ))}
+        </div>
+      )}
+
+      {tipoPago === 'porRango' && (
+        <div className="configuracion-rangos">
+          <h3>Configuración por Rango de GB</h3>
+          {rangos.map((rango, index) => (
+            <div key={index} className="rango">
+              <label>Min:</label>
+              <input
+                type="number"
+                value={rango.min}
+                onChange={(e) => handleRangoChange(index, 'min', e.target.value)}
+                placeholder="GB mínimo"
+              />
+              <label>Max:</label>
+              <input
+                type="number"
+                value={rango.max}
+                onChange={(e) => handleRangoChange(index, 'max', e.target.value)}
+                placeholder="GB máximo"
+              />
+              <label>Precio:</label>
+              <input
+                type="number"
+                value={rango.precio}
+                onChange={(e) => handleRangoChange(index, 'precio', e.target.value)}
+                placeholder="Precio"
+              />
+              <button onClick={() => eliminarRango(index)}>Eliminar</button>
+            </div>
+          ))}
+          <button onClick={agregarRango}>Agregar Rango</button>
+        </div>
+      )}
     </div>
   );
 };
